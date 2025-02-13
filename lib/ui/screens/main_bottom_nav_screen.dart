@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:assaignment_taskmanager_project/ui/screens/new_task_list_screen.dart';
 import 'package:assaignment_taskmanager_project/ui/screens/progress_task_list_screen.dart';
 

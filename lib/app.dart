@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:assaignment_taskmanager_project/controller_binder.dart';
 import 'package:assaignment_taskmanager_project/ui/screens/add_new_task_screen.dart';
 import 'package:assaignment_taskmanager_project/ui/screens/forgot_password_verify_email_screen.dart';
 import 'package:assaignment_taskmanager_project/ui/screens/forgot_password_verify_otp_screen.dart';
@@ -13,10 +15,14 @@ import 'package:assaignment_taskmanager_project/ui/utils/app_colors.dart';
 class TaskManagerApp extends StatelessWidget {
   const TaskManagerApp({super.key});
 
+  static GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
+
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
       initialRoute: '/',
+      navigatorKey: navigatorKey,
+      initialBinding: ControllerBinder(),
       theme: ThemeData(
         colorSchemeSeed: AppColors.themeColor,
         textTheme: const TextTheme(
@@ -42,7 +48,7 @@ class TaskManagerApp extends StatelessWidget {
           style: ElevatedButton.styleFrom(
             backgroundColor: AppColors.themeColor,
             shape:
-            RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+                RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
             fixedSize: const Size.fromWidth(double.maxFinite),
             padding: const EdgeInsets.symmetric(
               horizontal: 16,
@@ -55,23 +61,23 @@ class TaskManagerApp extends StatelessWidget {
       ),
       onGenerateRoute: (RouteSettings settings) {
         late Widget widget;
-        if (settings.name == SplashScreen.name) {
+        if (settings.name == '/') {
           widget = const SplashScreen();
-        } else if (settings.name == SignInScreen.name) {
+        } else if (settings.name == '/sign-in') {
           widget = const SignInScreen();
-        } else if (settings.name == SignUpScreen.name) {
+        } else if (settings.name == '/sign-up') {
           widget = const SignUpScreen();
-        } else if (settings.name == ForgotPasswordVerifyEmailScreen.name) {
+        } else if (settings.name == '/forgot-password/verify-email') {
           widget = const ForgotPasswordVerifyEmailScreen();
-        } else if (settings.name == ForgotPasswordVerifyOtpScreen.name) {
+        } else if (settings.name == '/forgot-password/verify-otp') {
           widget = const ForgotPasswordVerifyOtpScreen();
-        } else if (settings.name == ResetPasswordScreen.name) {
+        } else if (settings.name == '/forgot-password/reset-password') {
           widget = const ResetPasswordScreen();
-        } else if (settings.name == MainBottomNavScreen.name) {
+        } else if (settings.name == '/home') {
           widget = const MainBottomNavScreen();
-        } else if (settings.name == AddNewTaskScreen.name) {
+        } else if (settings.name == '/add-new-task') {
           widget = const AddNewTaskScreen();
-        } else if (settings.name == UpdateProfileScreen.name) {
+        } else if (settings.name == '/update-profile') {
           widget = const UpdateProfileScreen();
         }
         return MaterialPageRoute(builder: (ctx) => widget);

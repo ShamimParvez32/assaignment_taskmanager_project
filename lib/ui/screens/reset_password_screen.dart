@@ -1,5 +1,6 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:assaignment_taskmanager_project/ui/screens/sign_in_screen.dart';
 import 'package:assaignment_taskmanager_project/ui/utils/app_colors.dart';
 import 'package:assaignment_taskmanager_project/ui/widgets/screen_background.dart';
@@ -86,6 +87,8 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
               ..onTap = () {
                 Navigator.pushNamedAndRemoveUntil(
                     context, SignInScreen.name, (value) => false);
+
+                Get.offNamedUntil(SignInScreen.name, (value) => false);
               },
           )
         ],
