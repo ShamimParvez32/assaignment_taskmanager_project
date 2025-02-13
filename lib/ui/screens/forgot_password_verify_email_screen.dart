@@ -1,5 +1,6 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:assaignment_taskmanager_project/ui/screens/forgot_password_verify_otp_screen.dart';
 import 'package:assaignment_taskmanager_project/ui/utils/app_colors.dart';
 import 'package:assaignment_taskmanager_project/ui/widgets/screen_background.dart';
@@ -49,8 +50,9 @@ class _ForgotPasswordVerifyEmailScreenState
                   const SizedBox(height: 24),
                   ElevatedButton(
                     onPressed: () {
-                      Navigator.pushNamed(
-                          context, ForgotPasswordVerifyOtpScreen.name);
+                      // Navigator.pushNamed(
+                      //     context, ForgotPasswordVerifyOtpScreen.name);
+                      Get.toNamed(ForgotPasswordVerifyOtpScreen.name);
                     },
                     child: const Icon(Icons.arrow_circle_right_outlined),
                   ),
@@ -81,7 +83,8 @@ class _ForgotPasswordVerifyEmailScreenState
             ),
             recognizer: TapGestureRecognizer()
               ..onTap = () {
-                Navigator.pop(context);
+               // Navigator.pop(context);
+                Get.back();
               },
           )
         ],

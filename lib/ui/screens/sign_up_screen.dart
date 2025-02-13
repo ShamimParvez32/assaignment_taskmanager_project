@@ -1,5 +1,6 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:assaignment_taskmanager_project/data/services/network_caller.dart';
 import 'package:assaignment_taskmanager_project/data/utils/urls.dart';
 import 'package:assaignment_taskmanager_project/ui/utils/app_colors.dart';
@@ -177,7 +178,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
             ),
             recognizer: TapGestureRecognizer()
               ..onTap = () {
-                Navigator.pop(context);
+                //Navigator.pop(context);
+                //Navigator.pop(context);
+                Get.back();
               },
           )
         ],

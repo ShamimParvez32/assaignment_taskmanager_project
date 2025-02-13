@@ -82,8 +82,10 @@ class _SignInScreenState extends State<SignInScreen> {
                       children: [
                         TextButton(
                           onPressed: () {
-                            Navigator.pushNamed(
-                                context, ForgotPasswordVerifyEmailScreen.name);
+                           // Navigator.pushNamed(
+                                //context, ForgotPasswordVerifyEmailScreen.name);
+
+                            Get.toNamed(ForgotPasswordVerifyEmailScreen.name);
                           },
                           child: const Text('Forgot Password?'),
                         ),
@@ -112,7 +114,8 @@ class _SignInScreenState extends State<SignInScreen> {
       _passwordTEController.text,
     );
     if (isSuccess) {
-      Navigator.pushReplacementNamed(context, MainBottomNavScreen.name);
+      //Navigator.pushReplacementNamed(context, MainBottomNavScreen.name);
+      Get.offNamed(MainBottomNavScreen.name);
     } else {
       showSnackBarMessage(context, _signInController.errorMessage!);
     }
@@ -132,7 +135,9 @@ class _SignInScreenState extends State<SignInScreen> {
             ),
             recognizer: TapGestureRecognizer()
               ..onTap = () {
-                Navigator.pushNamed(context, SignUpScreen.name);
+                //Navigator.pushNamed(context, SignUpScreen.name);
+                Get.toNamed(SignUpScreen.name);
+
               },
           )
         ],
